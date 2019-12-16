@@ -12,7 +12,7 @@ public class AddTwoNumber {
 		int size1 = list1.size();
 		int size2 = list2.size();
 		int len = size1>=size2?size1:size2;
-		LinkedList<Integer> resultList = new LinkedList<Integer>();
+		LinkedList<Integer> resultList = new LinkedList<Integer>(len+1);
 		for (int i=0;i<len;i++) {
 			if(i<size1 && i<size2)
 				sum = list1.get(i)+list2.get(i)+carry;
