@@ -16,6 +16,22 @@ public class SubarrayWithGivenSum {
 		}
 		return new int[] {-1};
 	}
+	public static int[] getSubarrayLocationWithGivenSumV2(int noOfTestCases, int size, LinkedList<Integer> inputlist, int sum)
+	{
+		int total = 0 ;
+		int start = 0;
+		for(int i=0;i<size;i++) {
+			total= total+inputlist.get(i);
+			while(total>sum){
+			    total = total - inputlist.get(start);
+			    start = start+1;
+			}
+			if(total == sum)
+					return new int[] {start+1,i+1};
+			
+		}
+		return new int[] {-1};
+	}
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
 		
@@ -32,7 +48,7 @@ public class SubarrayWithGivenSum {
 			inputlist.add(Integer.parseInt(number));
 		
 //		Collections.sort(inputlist);
-		int[] output = getSubarrayLocationWithGivenSum(noOfTestCases,size,inputlist,sum);
+		int[] output = getSubarrayLocationWithGivenSumV2(noOfTestCases,size,inputlist,sum);
 		if(output[0] > -1)
 			System.out.println(output[0]+" "+output[1]);
 		else
